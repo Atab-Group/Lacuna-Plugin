@@ -1,0 +1,6 @@
+# Case workspace: memos are work product and may be privileged.
+# Tracking them in git is a deliberate opt-in.
+cases/
+
+# Local desk state left behind by 0.1 installs. No 0.2 code writes here.
+.lacuna/

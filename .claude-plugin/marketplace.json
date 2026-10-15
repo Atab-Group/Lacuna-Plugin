@@ -1,0 +1,21 @@
+{
+  "name": "lacuna-tools",
+  "owner": {
+    "name": "Lacuna",
+    "url": "https://github.com/Atab-Group/Lacuna-Plugin"
+  },
+  "metadata": {
+    "description": "Litigation-driven research tooling for Claude Cowork and Claude Code.",
+    "version": "0.8.1"
+  },
+  "plugins": [
+    {
+      "name": "lacuna",
+      "source": "./"
+    },
+    {
+      "name": "lacuna-desk",
+      "source": "./desk"
+    }
+  ]
+}
