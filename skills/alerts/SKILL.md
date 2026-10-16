@@ -103,8 +103,10 @@ calm.
 ## What this skill cannot do
 
 It is read only. It cannot add a watch, change where alerts go, silence
-anything, or delete an alert. If the person wants any of that, say it is
-Nic's to change and offer to write down what they want.
+anything, or delete an alert. Removing or pausing a monitor is done through the
+news desk connection: hand over to the `news-watch` skill's "Removing any
+monitor" section, which covers every kind, including monitors Nic set up. For
+anything that section cannot do, it sends Nic the request itself.
 
 News about companies is a different thing with its own connection and its own
 skill. If the question is about news coverage rather than about an alert that

@@ -7,6 +7,26 @@ project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The first line under each version heading is a one-sentence summary. Keep it
 short and keep it plain.
 
+## [0.9.0] - 2026-10-16
+
+Any monitor can now be removed or changed from the desk, whoever set it up.
+
+### Added
+
+- `news-watch` gains "Removing any monitor": news and docket watches as before,
+  prediction markets through the new `list_market_watches` and
+  `remove_market_watch`, Distill page watches in the person's own Distill
+  account, and everything else (Case.net, the office machine's court pages, new
+  markets) sent to Nic with `request_monitor_change`, which always answers with
+  what happens next.
+
+### Changed
+
+- A monitor someone else added is no longer treated as off limits. `alerts` and
+  `add-monitor` hand removals to `news-watch` instead of saying it is Nic's to
+  change, and `add-monitor` sends market, page and state court requests to Nic
+  through the desk when it is connected, drafting them only when it is not.
+
 ## [0.8.1] - 2026-10-15
 
 The plugin now lives at Atab-Group/Lacuna-Plugin; nothing else changed.

@@ -98,6 +98,14 @@ Court docket watches, on the same connection:
   `mcp__lacuna-news__pause_docket_watch`, `mcp__lacuna-news__resume_docket_watch`
   and `mcp__lacuna-news__remove_docket_watch` change them. Writing.
 
+Prediction markets and every other monitor, on the same connection:
+
+- `mcp__lacuna-news__list_market_watches` lists the Polymarket events the
+  market monitor follows, with their `id`. Reading.
+- `mcp__lacuna-news__remove_market_watch` stops one for good. Writing.
+- `mcp__lacuna-news__request_monitor_change` sends Nic a request for any
+  monitor with no tool of its own and answers with what happens next. Writing.
+
 ### Read-only connections
 
 New people get read access by default. A write tool called on a read
@@ -371,6 +379,53 @@ pattern; an empty `alert_to` list goes back to the usual list.
 `pause_docket_watch` keeps it and stops the alerts; `resume_docket_watch` starts
 it again. `remove_docket_watch` deletes it for good, so say that and wait for a
 yes. Every change is live within a minute, and the desk is told who changed what.
+
+## Removing any monitor
+
+Triggers: "remove the Paramount monitors", "stop the Shull alerts", "get rid
+of that market alert", "delete the WGA page watch".
+
+**Who may.** Anyone with write access may change or remove any monitor,
+whoever added it. A monitor Nic added is not off limits. Never refuse because
+someone else set it up, and never send them to Nic for a kind they can remove
+here.
+
+**What you do.** Find it, say what you are about to remove, wait for a yes,
+then by kind:
+
+- **News watch:** `remove_news_watch` (see "Pausing, resuming and removing").
+- **Court docket watch:** `list_docket_watches` for the `id`, then
+  `remove_docket_watch`.
+- **Prediction market:** `list_market_watches` for the `id`, then
+  `remove_market_watch`. It stops every market in that event within a minute.
+  If it answers that the last one cannot be removed, use the request below.
+- **Distill page watch** (the board marks these Distill): these live in the
+  person's own Distill account, so they can delete or pause it there now. Call
+  `request_monitor_change` with kind `distill` so Nic knows, and tell them
+  how: open monitor.distill.io, find the watch in the list, tick it, then
+  delete or pause it.
+- **Anything else** (a Missouri Case.net case, a court page read by the office
+  machine, adding a market, or a monitor you cannot place): call
+  `request_monitor_change` with the monitor's name as the board or the alert
+  gives it, the change, the kind if known (`casenet`, `goober3`, `other`), and
+  their reason in their own words.
+
+**What you say.** Every one of these tools answers. Always pass the answer on
+plainly, and never leave a request without saying which of these happened:
+
+- Done: say what stopped and that it takes effect within a minute.
+- Sent to Nic (`status: sent`): say it went to Nic, and that the monitor keeps
+  alerting until he makes the change.
+- Not sent (`status: not_sent` without `self_serve`): say it did not reach Nic
+  and that they should tell him directly.
+
+> Done: the Paramount end-of-2026 market is no longer watched; its alerts stop
+> within a minute.
+> Recommended: say "show my monitors" to check what is left.
+
+> Done: I sent Nic your request to stop the Shull v. Monsanto monitor. It keeps
+> alerting until he makes the change.
+> Recommended: nothing to do; Nic confirms when it is off.
 
 ## Changing what is watched
 

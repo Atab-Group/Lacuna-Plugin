@@ -29,6 +29,12 @@ them: no internal names, no field names, no raw output, no commands.
   exception is a question you are waiting on, which ends with the question.
 - An error is one or two plain sentences plus who to ask, which is Nic.
 
+## Removing or stopping a monitor
+
+A request to remove, pause or stop any monitor, whoever set it up, goes to the
+`news-watch` skill and its "Removing any monitor" section. Never answer that
+only Nic can remove something without trying that first.
+
 ## Step 1. Sort the request
 
 - **A company or topic in the news** ("watch Northwind Kettle Works", "tell me
@@ -68,7 +74,19 @@ For every kind, also ask for **one sentence on what a change would mean** to
 them: "What would it mean for you if this moved?" That sentence is what turns an
 alert into something they can act on, and Nic needs it.
 
-## Step 3. Draft the request
+## Step 3. Send it, or draft it
+
+**When the news desk is connected with write access**, send the request
+straight to Nic with `mcp__lacuna-news__request_monitor_change`: change `add`,
+the monitor as one line ("Polymarket: Northwind merger closes by June 30"),
+the kind (`polymarket`, `distill` for a web page, `casenet` for a Missouri
+state court case, otherwise `other`), and the details and the one sentence on
+what it would mean. Then tell them what the answer said: sent to Nic and
+nothing is watching it until he sets it up, or not sent and they should send
+the draft below themselves. That is the whole of Step 4 in that case.
+
+**Otherwise**, draft it for them to send.
+
 
 Write it ready to paste, addressed to Nic, in this shape:
 
@@ -95,7 +113,7 @@ unless they told you their name.
 
 After the draft, two short lines:
 
-> Done: I have drafted the request above; Nic sets up this kind of monitor
+> Done: I have drafted the request above (or sent it, if the tool said so); Nic sets up this kind of monitor
 > himself, so nothing is watching it yet.
 > Recommended: send it to Nic however you normally reach him.
 
